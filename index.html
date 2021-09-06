@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caeser Cyphers </title>
+
+    <style>
+        body {
+        background-color: #ffccff;
+        }
+
+       h1 {
+      text-align: center;
+      }
+       h4 {
+      text-align: center;
+      }
+       h3 {
+      text-align: center;
+      }
+      img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  }
+
+  html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+
+table, th, td {
+  border:1px solid black;
+}
+    </style>
+
+</head>
+
+<body>
+
+  <h1>The Caeser Cypher</h1>
+     <h4>Get To Do Some Cryptography</h4>
+  <img src="https://miro.medium.com/max/1120/1*Q-Kh2aE-BomHiU6L9d8EDQ.jpeg" alt="Caeser">
+
+
+  <form action="/action_page.php" style="border:1px solid #ccc">
+      <div class="container">
+          <h1>Cypher My Sentence</h1>
+          <p>Please fill in this form to encrypt and decrypt your message.</p>
+          <hr>
+
+          <label for="text"><b>Enter your sentence here</b></label>
+          <input type="text" placeholder="Your sentence" name="email" required>
+
+          <label for="number"><b>Key</b></label>
+          <input type="number" placeholder="Enter Your Key" name="psw" required>
+
+          <label for="text"><b>Your encrypted Sentence</b></label>
+          <input type="text" placeholder="Your sentence" name="email" required>
+
+          <label for="text"><b> Your decrypted sentence</b></label>
+          <input type="text" placeholder="Your sentence" name="email" required>
+
+          <p>Learn more about the <a href="https://en.wikipedia.org/wiki/Caesar_cipher" style="color:dodgerblue" target="blank">Ceaser Cypher</a> and cryptography.</p>
+
+          <div class="clearfix">
+              <button type="button" class="cancelbtn">Cancel</button>
+              <button type="submit" id="myBtn" onclick="javascript:alert('Hello World!')" class="signupbtn">Submit</button>
+          </div>
+      </div>
+  </form>
+
+  <h3>What is a Caeser Cypher and how Does it Work</h3>
+  <p>In <a href="https://en.wikipedia.org/wiki/Cryptography">cryptography</a>, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift,
+      is one of the simplest and most widely known encryption techniques. It is a type of <a href="https://en.wikipedia.org/wiki/Substitution_cipher">substitution</a> cipher in which each letter in the plaintext
+      is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A,
+      E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.[1]
+      The encryption step performed by a Caesar cipher is often incorporated as part of more complex schemes, such as the Vigenère cipher,
+      and still has modern application in the ROT13 system. As with all single-alphabet substitution ciphers,
+      the Caesar cipher is easily broken and in modern practice offers essentially no communications security.</p>
+  <h3>Example</h3>
+  <p>The transformation can be represented by aligning two alphabets; the cipher alphabet is the plain alphabet rotated left or right by some number
+      of positions. For instance, here is a Caesar cipher using a left rotation of three places, equivalent to a right shift of 23 (the shift parameter is
+      used as the key):</p>
+  <table style="width:100%">
+      <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>E</th>
+          <th>F</th>
+          <th>G</th>
+          <th>H</th>
+          <th>I</th>
+          <th>J</th>
+          <th>K</th>
+          <th>L</th>
+          <th>M</th>
+          <th>N</th>
+          <th>O</th>
+          <th>P</th>
+          <th>Q</th>
+          <th>R</th>
+          <th>S</th>
+          <th>T</th>
+          <th>U</th>
+          <th>V</th>
+          <th>W</th>
+          <th>X</th>
+          <th>Y</th>
+          <th>Z</th>
+      </tr>
+      <tr>
+          <th>a</th>
+          <th>b</th>
+          <th>c</th>
+          <th>e</th>
+          <th>f</th>
+          <th>g</th>
+          <th>h</th>
+          <th>i</th>
+          <th>j</th>
+          <th>k</th>
+          <th>l</th>
+          <th>m</th>
+          <th>n</th>
+          <th>o</th>
+          <th>p</th>
+          <th>q</th>
+          <th>r</th>
+          <th>s</th>
+          <th>t</th>
+          <th>u</th>
+          <th>v</th>
+          <th>w</th>
+          <th>x</th>
+          <th>y</th>
+          <th>z</th>>
+      </tr>
+      <tr>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+          <th>11</th>
+          <th>12</th>
+          <th>13</th>
+          <th>14</th>
+          <th>15</th>
+          <th>16</th>
+          <th>17</th>
+          <th>18</th>
+          <th>19</th>
+          <th>20</th>
+          <th>21</th>
+          <th>22</th>
+          <th>23</th>
+          <th>24</th>
+          <th>25</th>
+          <th>26</th>
+      </tr>
+  </table>
+
+  <p>When encrypting, a person looks up each letter of the message in the "plain" line and writes down the corresponding letter in the "cipher" line.
+      Deciphering is done in reverse, with a right shift of 3.
+
+      The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A → 0, B → 1, ...,
+      Z → 25.[2] Encryption of a letter x by a shift n can be described mathematically as,
+  </p>
+
+  <h3>E_{n}(x)=(x+n)\mod {26}.</h3>
+
+      <p>Decryption is performed similarly,</p>
+
+  <h3>D_{n}(x)=(x-n)\mod {26}.</h3>
+  <p>(There are different definitions for the <a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo operation</a>. In the above, the result is in the range 0 to 25; i.e., if x + n or x − n are not in the range 0 to 25, we have to subtract or add 26.)</p>
+
+  <p>The replacement remains the same throughout the message, so the cipher is classed as a type of <a href="https://en.wikipedia.org/wiki/Substitution_cipher">monoalphabetic substitution</a>,
+      as opposed to <a href="https://en.wikipedia.org/wiki/Polyalphabetic_cipher">polyalphabetic substitution</a>.
+  </p>
+
+  <br><br><br>
+
+  <div class="row">
+      <div class="column">
+          <div class="card">
+              <img src="data:image/jpeg;base64,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" alt="Jane" style="width:100%">
+              <div class="container">
+                  <h2>Jane Doe</h2>
+                  <p class="title">Chief Programmer & CEO & Founder</p>
+                  <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                  <p>example@example.com</p>
+                  <p><button class="button">Contact</button></p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="column">
+              <div class="card">
+                  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYVFRgSEhUYGBgYGRgYGBgYGBgYGBgYGBgaGRgZGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QGhIRGjQhISE0NDQ0MTQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0ND80NP/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYBBwj/xAA9EAACAQIEAwYDBQYFBQAAAAABAgADEQQFITEGEkEiMlFhcYGRocEHExRSsUJicrLR8CMzkuHxFRaCwtL/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAgEQEBAAICAgMBAQAAAAAAAAAAAQIRITESQQMyUXEE/9oADAMBAAIRAxEAPwA/gIVgvAiFDtOaNqZfWTrtK3WWUOkYIRNOzhjI9I+MUxwMAcojzGidjJ0RtWoqgsxAA1JOgEdPP+M8/uxpJflQ6i/fe+g06CAFsx4hJ5hSYBdg+tzpqQDsP9toC/F827Ekm92NySLanx95Wy/h/EVl5qh5L6gHfXxEvpwO51FUA9SQTp5Rcr1FH7wAGxOpOgFjbwHx385yoVYagAnYAXtr1PX18h7nqXArkWGJsf4PrfSTJwK6j/Nv5kfSVJRx+ssiWuCS1tbCwAFtb+XS8vYOvUplXRiuoHUjXcMBuNvjfzhn/sqoBpUu3na1vhG4fhnErzAheXXl1ubaa+XWFl/Bx+i+V50HIp1LB/EHsk219DvpDE8/xdM03+7qXRteUnY8xuQfEEgzTcPZiXU037ydehHkettNfOJNgyYhOxQJBXkNKTYgyGjF7NI0ZHtGQCGpvKWN2l6pvKOOGkIL0Hq2kiJ1kiDSR21miBzK4YWB8rhhZcSk6QJm+0N9IFzWGQgEZySESNhIUV5yKcgBbAwmYLwEKGZRoiMsJtIessINIArTtoojGToE6BEscIA8RRCKMg/iDGijh3qdQLD1Og/WYHhvLg7HF1RfU/dqdQD1cjqeghb7S8UQlKn0ZmY/+NgP5jG5e/8AhoBsFEW14wfo1dBLVKvBFGpcSwt4bXofw2I85a++gKi5lr74zSZIuIoK0cKsFLVMnSrH5FYlzXLKeJQ06i38GG6nxBmFy7D1MNiDSdiwTUN+dGP0/wDWboVpm+KanJyVl/Zurfw25vlY/GKkPg31jpRymvz01b2+o+REuyCVsRI6ElxAkVESfZpWjI5o0xhFU3lPGbS2+8q4zaEFDlkR3kqjSRHeaIGsshhYHyyGFlxCTpAuawz0gbNYZHAYyN48xjyFGRRRQAvgEhYJpBmBaE1aZRpULrYyddpE7XkqDSMOzhnYrQI5Y4RKIrQB4iM4sTGAebfaXV/x6SeCFvixA/lM7lWI5kX0tGfaOyO1Kuhv2Sh0OwPMpvse80rcP/5dztzH5Wh6Xjw1WBQmF6KDrM5QxzgWFvLScq5rWU62t6QnCrutbSpr0j/uxeZjCZzzEeMt1c1K6mPcLxrRLSE6adtpkTxMw7q3l7DcROe9T+Bj8oVxopUexgDifF2pDbvDQ9ehHzhkYpKqkgWbw8fSZHii5ZV6KOc+x0HvaFJouEH/AMC172Nr+iqPpDpmd4IB/DAnq7n52+k0MjZIcRIqMfiJFRMN8jSdo20TTkWwhqbyrjNpafeVcbtKxovQcu0iO8lXaRHeaMxrLIYWB8shcS4hJ0gfNIY6QHm72hl0cDSokbLGGpI2qyFJeWc5RIfvZz72AGsDCkGYJYTtMo0RjeWU2le0sJCArRNO2nCIyOUx0YojwYB0CQ4wEo4XcowHrym3zk4nGhehHkqXekaT7Xuv7rDcS7k1K2HXTe5+f+0s8RZcUqPTpiysS2nmAxHtf5Szlqctl8Bb36yZw3y1eQPEO7PZQ3KLeNvVh19IO+5xJfusAD3lTkFrnqAL/Gbtsv5tQPha/teRDLWGtvdtfltKiLz7BsnwrlkNQWN9Rpe3jp4zS51l1wANJBh1AdR56mH8Utz/AH0jkgu3m2JwlUMVseUXsRs3pyytgMVX5ihpsAP2lVlYeY6NvsRN1isp5u0hIPla/wA94zDYGoD2mFv4CD8ea3yj1ot79q+QYhmI5x2gSDbqOht0kPF2FLOFXd0sPC4bSaelh0GthfxtrA3EdworKLsnZA6XbYn0sfjF6LulhMQaRoUaeiA2e573MeX+Zibec1EyOGviWpOoClX7YGwAsbj3BmutJis5Jqe1bESOisnrLG0VhpBGK0kKRckNDaqy6ypjhpCJWUMxOkeM0VC12kR3kinSRX1miBvLIXEEZZC6y4hJ0gDOjD52mezqGXRwHvInnbxpMhZTk7FAmjwIhIpB2AOsLgSJFWoOSSqsRElQR6LZoWcZZLaMePQ2aBOTt42IzhOxt4rxAA4goH7xX3UqQR1DC+o9iBAuEPbJPif1mwx+F+8TlvyndWtex8x1ExeJVqTsjEEg6kaDUA/WTk1xu5posO4E5i6wsYFGN5Rc/OMTGFweghMlXFawyMzBtrG485pqgutxqfAzz2nxA6MeZddr3002MJJxM5typzn1AHuY5dHZtpkr62IsRvLdOoJmsRinZRVYWa2oBvb36zuEzK43/wCY/JPjtosTa11lJU5gy2vfl9NL6n4yumL5rCS0Kg5ypRubTl0NitgbjyvcX8obTo/h/Dqga3S4J6Ek9PEC2/nDF5FTWwsBb02klot/hZXd2jrGR0WncQZBRaG0rjPOc0hYzl49k67wfmJ7JlsjWU8eNISihCnSRg6yZV0kYGstI7lkLiCMshdZcQlgHOFhzpAubQyOADJGMsnMjaQpHactHRQDQ4CGAdIDwtUDrLxxYHWTDq4TJqcHJilPWWkxC+MYWCYxzHBrxjxg0xt46NEiiOEzonZwQN2YjiNLYh/MI3tyhf1UzbzJcYLapTbxUqfZrj+Y/GKxeN5DKmHLpzLYkdDtK2IqsgHNTcj8y2I+F7/KXMBWseXpLtTsjlOq9Io02y1bEUzqVI9dD8xJ8JXpKbAi/qu/x1hJ0QHS48uks4QpexB9tB8o9RW4rpmAYciI7einl/1HT5zuFwrKxYiw8D4zQIi2soteUcQ+vLCxnLyfRHaFvCadFsAPAATPZUnNUXwGp9rkfO00ZgnKuCOBjbTsEoMRIKMmxEioxezStOTpnI0mSnmB0ljEPyi8z2Y5qq6ExwVIu0j6ygmaLbeNGYrfeWlrcshdZlsuzVB1hNc4TxEuIGekC5tJhm6W3EC5pmqHrCnEBkbSj/1FfGcOPWQpcilQ45Y38csAoLm1QdDOVM8fwMP/AIFbbQbj8IovJlPQcvEDiH+H8xqVTrtMbil5TpNlwa4IEdgbjDg21kjTqDSNeAcMbeOjIqIdFFGswAJJAABJJNgANSSfCIzpl+M6JKo/7I5l9GNiPjY/CVsp4rbF40UKJRKChmuykvUCC3ZJNlBJBta/KD121uYYNaiNTfZhY23BGzDzBmkw3C8tV5lhsVY67iaDDVA6gGZnOMC9Fyp3HXoy9CP70iy/MeXbp06j+omXV0220VfLQ3WT4XLOW0p0c5BGu8f/ANasNP8AiE0d2MuwQWg6vUBOm8pHHl9JYwa8xvGgeyKja7eX66/T5wuZUy5LJfxJP0+kugQ0m3kwTsfaIiHiW1PESKgJNiZFQk65UlMbaSETkpKjjlupnnnEGFbmvcz0fE7GZHPlEIL0yeEw7t1MILlzeJkuVWvDjuoEtGmZqo6myky/leFdzZiZ16oudoTyfEjnA6yiWhw+1u83xgvH5My9SZ6LRsVBgbNgLbQsEYBsCwi/BND9QC8QUSVAP4Jpz8C0P8oi5RALd4MzM2EtjFCD8zxAImcXWWxNW7kGbDgm1veYbGL27zYcCP8ArNL0idvTU2nHip7CJxAzIwx8hxFdEUvUZUUbsxAA9zJoSIJ5vx/xSH5sHh27F7VXB0cg9xT+W+567bXvPxVxsroaGDLDm0ar3ezY3VAdRf8ANp5eI89ZZpjj7pWpMtxz0KqVqZ7aMGHgehU+RBIPkZ75leYJiKSV6ZurrceIOxU+YIIPmJ892m9+y/POSo2DqHsVO1Tv0qAdpfLmUX9V8WmkQ3WdZYlZOVhqO6w3U+X9J5nmuVPRfUEflYbH0P0nsVRLwXj8uVwVdQQen97ScsNtMctPKaOJOzDX4Swr36fOHc04cand1uyePVf4vLz/ALI1sNbWc9ll1W0ss3EmDRmIFrTV4LDgKANzM/lj9oCa/L6d3QfvL+ojichSmlgB4C3wkoiqd5v4j+pnRGhyKKdMCVMQJDRk+JkNKTe1ekxM4TOExpMCV8TtMnno0mrxB0mU4gOkcFZrB4izWhR8RpAGG75hZ0YrYS0IaOFZ30JhTA4NqdUMxhLIMJYXIljHpdgB4ytE1GDqjk3gjOKgtvJ8MhCQRmqGO9AOaoLyRXEospvE1wJBr/OJznEr0nG0TprFMtqs0mOHlDH0tDCL1IJxtfpJgrM45TzaCbHgXDEC56mZbFWveafI8+o0EBqXJ/KoufoB7maa2nb0unsJFjMUlNS9R1RRuzEAfEzz/H8fVGBWgi0x+du2/qB3QfW8yeOxj1m56rs7eLG9vIDYDyEqYUeTcZvx6i3XCpzn873VPZe83vaYbM8yq4hues7PbYHRV/hUaD2lYiNaXMZE2oKu040dU2jFYEaRgy06jlWDqSrKQysN1ZTdSPMEA+0daNYQD3LhLOxjMOtTQOvYqL+VwNx+6249bbgw6ac8J4Rz04LELU1+7ayVVFzdL94Dqyk3HuOs98RgyhlIKsAQRqCCLgg+BENhVfDzP5rw6DepRHmUH6p/8/DwmtCyPGYmlQU1a7pTVd2Zgo8hc7nyk5SWcnjlZeHnWDwlmvb/AGmw4foFnNS3ZTS/i5Gw9L6+3nBWc5nhWT8UrMFYc3YC89YHYohIsTpqfHURnDHH1B3XDVaDYYE8lNmdXRj0DsNVYk7m4J63mckla5XKzcjRVB22HgxHzjgJg+Ls0q4bMaopuQHWlU5DYoewqHsnxKHUay5lfGyNZcQnIfzpdl913HteFwvaNthaIiMoVVdQ6MGU7MpuD7x5iG1WvIKUnryGlM72qdHsI0x7CNMAqYjaZPP9pq8TsZlc92hOxemWwtPt3hzDkA2MGYDvQoaeuk0QP4fEqq6GDXxl3v0vBuOrsqyjhsaCNTrKJ6PgMaCLStmtiJi8NnPIbX0lurnwc2BhaFp01lPG1eUSylXmF4IzVjY2kmgoZgea0O4etdQZm8FhCSDNRhsKeURWyHN0Aq5idYPqY2+p9zO06BeBcbiASVTujr4+crGQrVvEY8E9ke5/pI0xAO/1g4COUec0nCRYGdvB9KpaXFe8uUHkyMxxMaYwYZXq0v2l0PyPrLRkbnpEEVKpcbWI0McRHBYrRaBk9W+y7iNTSbCV3CmkOamzEAGnfVLk7qTp5MAO7PK7SxgMU1KolVLcyMGF9jbcHyIuD5GAe+Y3NzqtFe1+dwQuvVV0Le9veeWcZZLiSGxVTEvVK7hrDkVvyBbKo02AE9XyvE08TRSqg7LqCPEDqp8wbg+YMixWWoQwYXVgVYHYqd/6+0VkvCscrjdx4NgcT0tqPLpb4Cw206wxQHOVAF7XIG/dQsN+q2HSU+JsnOExBpjuntJe3dvoD6H9Je4axKpiKPNqC6qRe5Ic8jCwO9mPTwmGtZPRxvl8d/ifiyq7phsW+pCthqjbdpGNRAR5pUb/AEGDle4/vWeucScKU2wdelSU8zLzqouf8RLspUb66qQN1YzxbB1LixvcdDoRbcEdDpOiV5lHspzmrh25qTWB7yHVG9R9RrPQ8k4jp4kcvcqfkJ380PX03/WeTho9KpBBBII1FukWWMyEunsuIMipzGZRxaQAmIuw25/2gP3x+0PPf1mxoMCAQQQdQRqCDsQZz5Y3G8tJdxO0YZ1pwyQp4naZbPNpqMVtMxnY0hOzvTO4AdqHKY1gPA96G0Os0QrZsmkEYLK2fQQzmndk3DuJSwvvHCUV4bawvBeJy1qT+U9JNdbTMZ1XVzYbx0KGCc8shxe8u4NLLIswp6XEk02CC8sI08cALTOYLEHuy5ymTnjtUugPH4oJR5V7z9n0H7R+GnvM6BFFNcOk08LOhRFFLSeLSRHiijCQNHBooow7IsRSuPPcGKKANo1OYWO43EfadihAaRGxRQD0r7Ks55WfBue9epSv+YDtoPUAMB+6x6z09hcXiiioeXfanggXw9ToedDqRrZSLkbCY3AsaZDLYFSCNNSVPMtz5nr4eUUUw+T7PS/zSX4+X0VhK/PTR7W5kV7eHMoNvnPDPtBwBw+Y1GtZK3LVXTS7Dlf35lJP8UUU2xedewcGIxRSyINabbgHNC6vhmNynaTx5CdR7Ej/AFeU7FM/k+p49tiZwxRTnWpYraZnOtooop2d6ZvBHtw4k5FNGZmaDszP5RUYPbznIo4G7pm6XO9plcX/AJkUUdAlT2EjxluWKKSYJQNnmgpVBYRRR0P/2Q==" alt="Jane" style="width:100%">
+                  <div class="container">
+                      <h2>Jane Doe</h2>
+                      <p class="title">App Developer & Co-founder</p>
+                      <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                      <p>example@example.com</p>
+                      <p><button class="button">Contact</button></p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="column">
+                  <div class="card">
+                      <img src="data:image/jpeg;base64,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" alt="Jane" style="width:100%">
+                      <div class="container">
+                          <h2>Jane Doe</h2>
+                          <p class="title">Web Developer</p>
+                          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                          <p>example@example.com</p>
+                          <p><button class="button">Contact</button></p>
+                      </div>
+                  </div>
+              </div>
+ <script>
+    var input = document.getElementById("myInput");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("myBtn").click();
+  }
+});
+
+    static String alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+    public static String encoding(String pText, int Key) {
+        pText = pText.toLowerCase() ;
+        String cText ="";
+        for(int i = 0; i<pText.length(); i++){
+            int charIndex = alphabet.indexOf(pText.charAt(i));
+            int newIndex = (charIndex + Key) % 26;
+            char cipherChar = alphabet.charAt(newIndex);
+            cText = cText + cipherChar;
+        }
+        return cText;
+    }
+
+    public static String decoding(String cText, int Key){
+        cText = cText.toLowerCase();
+        String pText ="";
+        for (int i = 0; i<cText.length(); i++){
+            int charIndex = alphabet.indexof(cText.charAt(i));
+            int newIndex = (charIndex - Key) % 26;
+            if(newIndex < 0 ){
+                newIndex = alphabet.lenght() + newIndex;
+            }
+            char plainChar = alphabet.charAt(newIndex);
+            pText = pText + plainChar;
+        }
+
+        return pText;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Enter Plain Text >> ");
+        String plain = scan.nextline();
+
+        System.out.print("Enter Plain Text >>");
+        int Key = scan.nextInt();
+
+        String cipherText = encoding(plain, key);
+
+        System.out.println("The cipher text: " + cipherText);
+    }
+}
+
+ </script>
+
+</body>
+</html>
